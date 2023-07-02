@@ -134,7 +134,12 @@
                         </td>
                         <td>
                             <button class="btn btn-sm btn-primary" onclick="updateStock('${item.id}')">変更</button>
-                            <button class="btn btn-sm btn-danger" onclick="deleteItem('${item.id}')">削除</button>
+                            <div style="display: inline-block;">
+                                            <form action="{{ route('items.delete', $item->id) }}" method="post" onsubmit="return confirm('本当に削除しますか？')">
+                                                @csrf
+                                                @method('delete')
+                                                <button class="btn btn-sm btn-danger" type="submit">削除</button>
+                                            </form>
                         </td>
                     </tr>
                 `;
