@@ -21,7 +21,7 @@ class CreateItemHistoriesTable extends Migration
             $table->integer('new_quantity')->nullable(); // アクションが個数変更の場合、変更後の個数を保存
             $table->timestamp('changed_at')->nullable(); // 変更日時を保存
             $table->timestamps();
-            $table->foreign('item_id')->references('id')->on('items')->onDelete('restrict');
+            // $table->foreign('item_id')->references('id')->on('items')->onDelete('restrict');
         });
     }
 
